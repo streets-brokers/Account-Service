@@ -63,6 +63,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>account_service</finalName>
 	</build>
 
 </project>
