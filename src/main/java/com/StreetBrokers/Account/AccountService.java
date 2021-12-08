@@ -29,6 +29,7 @@ public class AccountService {
 //            System.out.println("Client Already exists");
         }
         log.info("Inside saveAccount method in Account Service");
+        account.setTotalBalance(0.0);
         return accountRepository.save(account);
     }
 
