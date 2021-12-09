@@ -10,7 +10,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @RestController
-@RequestMapping("api/v1/accoutservice/account")
+@RequestMapping("api/v1/accountservice/account")
 @Slf4j
 public class AccountController {
     @Autowired
