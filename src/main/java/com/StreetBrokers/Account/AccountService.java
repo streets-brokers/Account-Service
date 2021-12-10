@@ -95,8 +95,11 @@ public class AccountService {
      * @return saved transaction
      */
     public Transaction withdraw(Transaction transaction){
-        TransactionType operation = TransactionType.WITHDRAWAL;
-        transaction.setTransactionType(operation);
+        TransactionType operation2 = TransactionType.WITHDRAWAL;
+        transaction.setTransactionType(operation2);
+        System.out.println(
+                operation2
+        );
         log.info("Inside withdraw method in Account Service");
         return transactionRepository.save(transaction);
     }

@@ -10,7 +10,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @RestController
-@RequestMapping("api/v1/accoutservice/account")
+@RequestMapping("api/v1/accountservice/account")
 @Slf4j
 public class AccountController {
     @Autowired
@@ -85,6 +85,13 @@ public class AccountController {
                 return newTransaction;
     }
 
+    /**
+     *
+     * @param accountId
+     * @param transaction
+     * @return
+     */
+
     @PostMapping("{accountId}/withdraw")
     public Transaction withdrawFunds(@PathVariable(value = "accountId") Long accountId, @RequestBody Transaction transaction){
         Optional<Account> foundAccount = accountRepository.findAccountByAccountId(accountId);
@@ -94,7 +101,8 @@ public class AccountController {
         }).orElseThrow(()-> new IllegalStateException("Account not found"));
         log.info("Inside withdrawFunds  method in Account controller");
         transaction.setAccount(updatedAccount);
-        Transaction newTransaction = accountService.addFunds(transaction);
+        transaction.setTransactionType(TransactionType.WITHDRAWAL);
+        Transaction newTransaction = accountService.withdraw(transaction);
         return newTransaction;
     }
 }
