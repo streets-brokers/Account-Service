@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/v1/accoutservice/transactions")
+@RequestMapping("api/v1/accountservice/transactions")
 @Slf4j
 public class TransactionController {
     @Autowired
